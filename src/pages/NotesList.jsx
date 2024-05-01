@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Box, Button, Text, VStack, IconButton } from '@chakra-ui/react';
+import { Box, Button, Text, VStack, IconButton, Flex } from '@chakra-ui/react';
 import { FaStar, FaRegStar } from 'react-icons/fa';
 
 const NotesList = () => {
