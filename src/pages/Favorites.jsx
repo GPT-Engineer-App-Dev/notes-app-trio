@@ -11,9 +11,10 @@ const Favorites = () => {
       setFavorites(favoriteNotes);
     };
 
+    handleStorageChange(); // Call this function initially to set favorites
     window.addEventListener('storage', handleStorageChange);
     return () => window.removeEventListener('storage', handleStorageChange);
-  }, []);
+  }, [favorites]);
 
   return (
     <VStack spacing={4} p={5}>
