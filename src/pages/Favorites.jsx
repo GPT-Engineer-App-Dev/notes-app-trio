@@ -5,9 +5,14 @@ const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    const allNotes = JSON.parse(localStorage.getItem('notes')) || [];
-    const favoriteNotes = allNotes.filter(note => note.favorite);
-    setFavorites(favoriteNotes);
+    const handleStorageChange = () => {
+      const allNotes = JSON.parse(localStorage.getItem('notes')) || [];
+      const favoriteNotes = allNotes.filter(note => note.favorite);
+      setFavorites(favoriteNotes);
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
   }, []);
 
   return (
